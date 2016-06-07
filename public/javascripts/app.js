@@ -91,9 +91,10 @@ function($scope, movies){
   
   //ratings.csv isnt included as its a 620mb file. 
   //Uses Papa Parse library.
+  /* Parses local to cloud
   $scope.parseData = function() {
     $scope.buttonC = true;
-      Papa.parse("https://s3.amazonaws.com/rustybucket/temp/ratings.csv", {
+      Papa.parse("../csv/ratings.csv", {
               download: true,
             step: function(row) {
               //Each row, it checks if the array position exists, if it doesnt, initialize it.
@@ -118,8 +119,9 @@ function($scope, movies){
             }
           });
       }
+      
   $scope.connectMovies = function() {
-        Papa.parse("https://s3.amazonaws.com/rustybucket/temp/movies.csv", {
+        Papa.parse("../csv/movies.csv", {
             download: true,
             step: function(row) {
               //each step, checks if the genre is null. If it is, give it an empty value
@@ -153,5 +155,5 @@ function($scope, movies){
             complete: function(results) {
             }
           });
-      }
+      }*/
 }]);

@@ -4,14 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+require('dotenv').config();
 var mongoose = require('mongoose');
 require('./models/Movies');
 
-mongoose.connect('mongodb://localhost/movies');
+mongoose.connect('mongodb://'+process.env.DB_USER+':'+process.env.DB_PASS+'@'+process.env.EC2+':'+process.env.DB_PORT+'/dummyDB');
+//mongoose.connect('mongodb://localhost/movies');
 var app = express();
 
-app.options('*', cors());
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
